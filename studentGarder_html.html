@@ -1,10 +1,146 @@
+<?php
+   require 'dbconfig.php';
+    
+?>
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Know your grade</title>
-    </head>
+<head>
+<link rel="stylesheet" href="2.css" type="text/css" >
 
-    <body>
-        <p>Hello World</p>
-    </body>
+
+
+</head>
+<div class="div">
+<body bgcolor=#2d3436>
+<?php
+echo '
+<form class="form" id="form" method="POST" action="#" >
+ROLL NO: <br>
+<input name="rollno" type="text" class="roll_no" id="roll_no" autofocus required>
+<br>
+NAME:<br>
+<input name="name" type="text" class="name" id="name" required>
+<br>
+<hr>
+<center>
+MARKS
+</center>
+DBMS
+<br>
+Internal:<br>
+<input name="dbms_i" type="text" class="i" id="dbms_i" required>
+<br>
+External:<br>
+<input name="dbms_e" type="text" class="i" id="dbms_e" required>
+<br>
+
+WT
+<br>
+Internal:<br>
+<input name="wt_i" type="text" class="i" id="wt_i" required>
+<br>
+External:<br>
+<input name="wt_e" type="text" class="i" id="wt_e" required>
+<br>
+
+OS
+<br>
+Internal:<br>
+<input name="os_i" type="text" class="i" id="os_i" required>
+<br>
+External:<br>
+<input name="os_e" type="text" class="i" id="os_e" required>
+<br>
+
+DCCN
+<br>
+Internal:<br>
+<input name="dccn_i" type="text" class="i" id="dccn_i" required>
+<br>
+External:<br>
+<input name="dccn_e" type="text" class="i" id="dccn_e" required>
+<br>
+
+CAM
+<br>
+Internal:<br>
+<input name="cam_i" type="text" class="i" id="cam_i" required>
+<br>
+External:<br>
+<input name="cam_e" type="text" class="i" id="cam_e" required>
+<br>
+<center>
+<input name="submit_btn" type="submit" value="SUBMIT" class="si"  id="submit">
+</center>
+</form>
+';
+
+
+
+    if(isset($_POST['submit_btn'])) {
+    	//echo "<script>alert ('working') </script>";
+        
+    	$rollno = $_POST['rollno'];
+    	$name = $_POST['name'];
+    	$dbms_i = $_POST['dbms_i'];
+    	$dbms_e = $_POST['dbms_e'];
+    	$wt_i = $_POST['wt_i'];
+    	$wt_e = $_POST['wt_e'];
+    	$os_i = $_POST['os_i'];
+    	$os_e = $_POST['os_e'];
+    	$dccn_i = $_POST['dccn_i'];
+    	$dccn_e = $_POST['dccn_e'];
+    	$cam_i = $_POST['cam_i'];
+    	$cam_e = $_POST['cam_e'];
+
+
+       
+
+      $sum=$dbms_i + $dbms_e +  $wt_i + $wt_e  + $os_i + $os_e + $dccn_i + $dccn_e + $cam_i + $cam_e;
+      $avg =$sum/10;
+      echo $avg ;
+        
+   /**    
+         $query="select * from sample WHERE Roll_no='$rollno'";
+         $query_run=mysqli_query($conn,$query);
+
+         if(mysqli_num_rows($query_run)>0){
+         	echo "<script>alert ('Already Exists') </script>";
+         }
+         else
+         {
+         	$query="insert into marks (Roll_no,Name,dbms_i,dbms_e,wt_i,wt_e,os_i,os_e,dccn_i,dccn_e,cam_i,cam_e) values('rollno','name','dbms_i','dbms_e','wt_i','wt_e','os_i','os_e','dccn_i','dccn_e','cam_i','cam_e')";
+            $query_run=mysqli_query($conn,$query);
+            
+            if($query_run){
+            	echo "<script>alert ('Marks Submitted') </script>";
+            }  
+            else{
+            	echo "<script>alert ('Error') </script>";
+            }
+         }
+         
+
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+$sql = "INSERT INTO marks (Roll_no,Name,dbms_i,dbms_e,wt_i,wt_e,os_i,os_e,dccn_i,dccn_e,cam_i,cam_e) values('rollno','name','dbms_i','dbms_e','wt_i','wt_e','os_i','os_e','dccn_i','dccn_e','cam_i','cam_e')";
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+**/
+
+  
+    }
+    
+?>
+
+</div>
+</body>
 </html>
